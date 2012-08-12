@@ -12,7 +12,6 @@ ellipsoid<-function(
 	...
 )
 {
-	x=seq(-a,a,2*a/hx);
 	if(zlim==-1)
 	{
 		zlim=c(-c,c);
@@ -30,6 +29,7 @@ ellipsoid<-function(
 		scale=scale,
 		...
 	);
+	x=a*cos(seq(0,pi,pi/hrot));
 	rot=seq(0,2*pi,pi/hrot);
 	lenx=length(x);
 	lenrot=length(rot);
