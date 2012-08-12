@@ -30,7 +30,9 @@ ellipsoid<-function(
 		...
 	);
 	x=a*cos(seq(0,pi,pi/hrot));
+	z=c*cos(seq(0,pi,pi/hrot));
 	rot=seq(0,2*pi,pi/hrot);
+	lenz=length(z);
 	lenx=length(x);
 	lenrot=length(rot);
 	for(i in 1:lenx)
@@ -46,6 +48,31 @@ ellipsoid<-function(
 			alpha=rot[j];
 			Y=Ry*cos(alpha);
 			Z=Rz*sin(alpha);
+
+			ptz<-c(ptz,Z);
+			ptx<-c(ptx,X);
+			pty<-c(pty,Y);
+		}
+		res=trans3d(ptx,pty,ptz,pmat);
+		points(
+			res$x,
+			res$y,
+			type="l"
+		);
+	}
+	for(i in 1:lenz)
+	{
+		Z=z[i];
+		Ry=abs(b*sqrt(c^2-Z^2)/c);
+		Rx=abs(a*sqrt(c^2-Z^2)/c);
+		ptz=c();
+		ptx=c();
+		pty=c();
+		for(j in 1:lenrot)
+		{
+			alpha=rot[j];
+			Y=Ry*sin(alpha);
+			X=Rx*cos(alpha);
 
 			ptz<-c(ptz,Z);
 			ptx<-c(ptx,X);
