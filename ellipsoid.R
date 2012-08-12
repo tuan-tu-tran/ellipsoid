@@ -1,4 +1,15 @@
-ellipsoid<-function(h=100,a=1,b=1,c=1,s=1,theta=45, phi=15,zlim=-1,scale=F,...)
+ellipsoid<-function(
+	h=100,
+	a=1,
+	b=1,
+	c=1,
+	s=1,
+	theta=45,
+	phi=15,
+	zlim=-1,
+	scale=F,
+	...
+)
 {
 	s=sign(s);
 	x=seq(-a,a,2*a/h);
