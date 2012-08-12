@@ -19,11 +19,23 @@ ellipsoid<-function(
 	{
 		zlim=c(-c,c);
 	}
+	pmat=persp(
+		c(-a,a),
+		c(-b,b),
+		matrix(nrow=2,ncol=2),
+		xlab="x",
+		ylab="y",
+		zlab="z",
+		theta=theta,
+		phi=phi,
+		zlim=zlim,
+		scale=scale,
+		...
+	);
 	lenx=length(x);
 	leny=length(y);
 	z=matrix(nrow=lenx, ncol=leny);
 	lenrot=length(rot);
-	pmat=persp(x,y,z,theta=theta,phi=phi,zlim=zlim,scale=scale,...);
 	for(i in 1:lenx)
 	{
 		X=x[i];
