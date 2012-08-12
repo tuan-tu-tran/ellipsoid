@@ -13,7 +13,6 @@ ellipsoid<-function(
 )
 {
 	x=seq(-a,a,2*a/hx);
-	rot=c(seq(0,pi,pi/hrot),seq(pi,2*pi,pi/hrot));
 	if(zlim==-1)
 	{
 		zlim=c(-c,c);
@@ -31,6 +30,7 @@ ellipsoid<-function(
 		scale=scale,
 		...
 	);
+	rot=seq(0,2*pi,pi/hrot);
 	lenx=length(x);
 	lenrot=length(rot);
 	for(i in 1:lenx)
